@@ -2,6 +2,8 @@
 
 A plugin for Mattermost to notify all users about newly created channels.
 
+![screenshot](https://i.imgur.com/SII7ZEi.png)
+
 ## Installation
 
 __Requires Mattermost 5.10 or higher.__
