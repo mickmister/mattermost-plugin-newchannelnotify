@@ -40,6 +40,8 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 		config.ChannelToPost = model.DEFAULT_CHANNEL
 	}
 
+	newChannelName := channel.Name
+
 	if channel.Type == model.CHANNEL_DIRECT || channel.Type == model.CHANNEL_GROUP {
 		return
 	}
@@ -48,6 +50,7 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 		if config.IncludePrivateChannels == false {
 			return
 		}
+		newChannelName += " [Private]"
 	}
 
 	p.ensureBotExists()
@@ -66,7 +69,7 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 	post, err := p.API.CreatePost(&model.Post{
 		ChannelId: mainChannel.Id,
 		UserId:    bot.Id,
-		Message:   fmt.Sprintf("@channel Hello there :wave:. You might want to check out the new channel ~%s created by @%s :).", channel.Name, creator.Username),
+		Message:   fmt.Sprintf("@channel Hello there :wave:. You might want to check out the new channel ~%s created by @%s :).", newChannelName, creator.Username),
 	})
 
 	p.API.LogDebug(fmt.Sprintf("Created post %s", post.Id))
