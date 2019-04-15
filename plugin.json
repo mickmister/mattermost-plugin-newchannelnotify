@@ -1,0 +1,39 @@
+{
+    "id": "de.pillzone.matttermost-plugin-newchannelnotify",
+    "name": "New Channel Notify",
+    "description": "Notifies people for newly created channels",
+    "version": "0.9.0",
+    "min_server_version": "5.10.0",
+    "server": {
+        "executables": {
+            "linux-amd64": "server/dist/plugin-linux-amd64",
+            "darwin-amd64": "server/dist/plugin-darwin-amd64",
+            "windows-amd64": "server/dist/plugin-windows-amd64.exe"
+        }
+    },
+    "settings_schema": {
+        "settings": [
+            {
+                "key": "BotUserName",
+                "display_name": "Bot Name",
+                "type": "text",
+                "help_text": "The bot user which is used to post the messages - non existing bots will be created automatically.",
+                "placeholder": "New-Channel-Bot"
+            },
+            {
+                "key": "ChannelToPost",
+                "display_name": "Channel to Post",
+                "type": "text",
+                "help_text": "The channel where the bot will post to.",
+                "placeholder": "town-square"
+            },
+            {
+                "key": "IncludePrivateChannels",
+                "display_name": "Include private channels",
+                "type": "bool",
+                "help_text": "Trigger the bot for new private channels too",
+                "default": false  
+            }
+        ]
+    }
+}
