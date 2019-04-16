@@ -14,6 +14,7 @@ Change the `settings` if you want under the plugins settings menu
 - Bot Name
 - Channel to Post
 - Include private channels
+- Mention
 
 ## Developing 
 
