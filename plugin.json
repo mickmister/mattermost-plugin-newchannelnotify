@@ -33,6 +33,27 @@
                 "type": "bool",
                 "help_text": "Trigger the bot for new private channels too",
                 "default": false  
+            },
+            {
+                "key": "Mention",
+                "display_name": "Mention",
+                "type": "dropdown",
+                "help_text": "Who gets mentioned.",
+                "default": "@channel ",
+                "options": [
+                    {
+                        "display_name": "@channel",
+                        "value": "@channel "
+                    },
+                    {
+                        "display_name": "@here",
+                        "value": "@here "
+                    },
+                    {
+                        "display_name": "None",
+                        "value": ""
+                    }
+                ]
             }
         ]
     }

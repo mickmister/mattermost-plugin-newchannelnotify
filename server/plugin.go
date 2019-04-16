@@ -69,7 +69,7 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 	post, err := p.API.CreatePost(&model.Post{
 		ChannelId: mainChannel.Id,
 		UserId:    bot.Id,
-		Message:   fmt.Sprintf("@channel Hello there :wave:. You might want to check out the new channel ~%s created by @%s :).", newChannelName, creator.Username),
+		Message:   fmt.Sprintf("%sHello there :wave:. You might want to check out the new channel ~%s created by @%s :).", config.Mention, newChannelName, creator.Username),
 	})
 
 	p.API.LogDebug(fmt.Sprintf("Created post %s", post.Id))
