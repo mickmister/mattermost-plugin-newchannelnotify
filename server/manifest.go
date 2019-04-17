@@ -5,5 +5,5 @@ var manifest = struct {
 	Version string
 }{
 	Id:      "matttermost-plugin-newchannelnotify",
-	Version: "0.9.1",
+	Version: "0.9.2",
 }
