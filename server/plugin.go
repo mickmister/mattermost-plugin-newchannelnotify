@@ -8,7 +8,7 @@ import (
 	"github.com/mattermost/mattermost-server/plugin"
 )
 
-const defaultBotName = "New-Channel-Bot"
+const defaultBotName = "newchannelbot"
 
 type NewChannelNotifyPlugin struct {
 	plugin.MattermostPlugin

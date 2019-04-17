@@ -2,7 +2,7 @@
     "id": "matttermost-plugin-newchannelnotify",
     "name": "New Channel Notify",
     "description": "Notifies people for newly created channels",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "min_server_version": "5.10.0",
     "server": {
         "executables": {
@@ -17,8 +17,8 @@
                 "key": "BotUserName",
                 "display_name": "Bot Name",
                 "type": "text",
-                "help_text": "The bot user which is used to post the messages - non existing bots will be created automatically.",
-                "placeholder": "New-Channel-Bot"
+                "help_text": "Must be lowercase. The bot user which is used to post the messages - non existing bots will be created automatically.",
+                "placeholder": "Newchannelbot"
             },
             {
                 "key": "ChannelToPost",

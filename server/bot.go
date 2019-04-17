@@ -12,7 +12,7 @@ func (p *NewChannelNotifyPlugin) ensureBotExists() {
 		p.API.LogInfo("Bot user doesnt exist -> creating")
 		_, err := p.API.CreateBot(&model.Bot{
 			Username:    config.BotUserName,
-			DisplayName: config.BotUserName,
+			DisplayName: "NewChannelBot",
 		})
 
 		if err != nil {
