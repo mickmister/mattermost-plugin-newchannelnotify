@@ -1,4 +1,4 @@
-# Mattermost New Channel Plugin
+# Mattermost New Channel Notify Plugin
 
 A plugin for Mattermost to notify all users about newly created channels.
 
