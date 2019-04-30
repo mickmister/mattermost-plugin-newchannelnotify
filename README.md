@@ -8,11 +8,11 @@ A plugin for Mattermost to notify all users about newly created channels.
 
 __Requires Mattermost 5.10 or higher.__
 
-Download the [latestet release here](https://gitlab.com/thepill/mattermost-plugin-newchannelnotify/uploads/84e1c6feb323a0ccae1a19921466ed73/matttermost-plugin-newchannelnotify-0.9.2.tar.gz)
+Download the [latest release here](https://gitlab.com/thepill/mattermost-plugin-newchannelnotify/uploads/84e1c6feb323a0ccae1a19921466ed73/matttermost-plugin-newchannelnotify-0.9.2.tar.gz)
 
 In production, deploy and upload your plugin via the [System Console](https://about.mattermost.com/default-plugin-uploads).
 
-Change the `settings` if you want under the plugins settings menu
+Optionally, change `settings` under the plugins settings menu in System Console:
 - Bot Name
 - Channel to Post
 - Include private channels
