@@ -24,6 +24,7 @@ type configuration struct {
 	ChannelToPost          string
 	BotUserName            string
 	IncludePrivateChannels bool
+	IncludeChannelPurpose  bool
 	Mention                string
 }
 

@@ -2,7 +2,7 @@
     "id": "mattermost-plugin-newchannelnotify",
     "name": "New Channel Notify",
     "description": "Notifies people for newly created channels",
-    "version": "0.9.2",
+    "version": "0.9.3",
     "min_server_version": "5.10.0",
     "server": {
         "executables": {
@@ -32,6 +32,13 @@
                 "display_name": "Include private channels",
                 "type": "bool",
                 "help_text": "Trigger the bot for new private channels too",
+                "default": false  
+            },
+            {
+                "key": "IncludeChannelPurpose",
+                "display_name": "Include purpose of the channel",
+                "type": "bool",
+                "help_text": "Add the Channel's purpose/description text to the announcement",
                 "default": false  
             },
             {
