@@ -17,6 +17,7 @@ Optionally, change `settings` under the plugins settings menu in System Console:
 - Channel to Post
 - Include private channels
 - Mention
+- IncludeChannelPurpose
 
 ## Developing 
 
