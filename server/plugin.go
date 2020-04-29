@@ -31,6 +31,7 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 	p.API.LogDebug(log)
 
 	config := p.getConfiguration()
+	ChannelPurpose := ""
 
 	if config.BotUserName == "" {
 		config.BotUserName = defaultBotName
@@ -38,6 +39,10 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 
 	if config.ChannelToPost == "" {
 		config.ChannelToPost = model.DEFAULT_CHANNEL
+	}
+
+	if config.IncludeChannelPurpose == true && channel.Purpose != "" {
+		ChannelPurpose = "\n **" + channel.Name + "'s Purpose:** " + channel.Purpose
 	}
 
 	newChannelName := channel.Name
@@ -69,7 +74,7 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 	post, err := p.API.CreatePost(&model.Post{
 		ChannelId: mainChannel.Id,
 		UserId:    bot.Id,
-		Message:   fmt.Sprintf("%sHello there :wave:. You might want to check out the new channel ~%s created by @%s :).", config.Mention, newChannelName, creator.Username),
+		Message:   fmt.Sprintf("%sHello there :wave:. You might want to check out the new channel ~%s created by @%s %s", config.Mention, newChannelName, creator.Username, ChannelPurpose),
 	})
 
 	p.API.LogDebug(fmt.Sprintf("Created post %s", post.Id))
