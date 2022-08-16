@@ -1,6 +1,6 @@
 package main
 
-import "github.com/mattermost/mattermost-server/model"
+import "github.com/mattermost/mattermost-server/v6/model"
 
 func (p *NewChannelNotifyPlugin) ensureBotExists() {
 	config := p.getConfiguration()

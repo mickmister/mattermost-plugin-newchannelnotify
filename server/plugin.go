@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/mattermost/mattermost-server/model"
-	"github.com/mattermost/mattermost-server/plugin"
+	"github.com/mattermost/mattermost-server/v6/model"
+	"github.com/mattermost/mattermost-server/v6/plugin"
 )
 
 const defaultBotName = "newchannelbot"
@@ -31,7 +31,7 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 	p.API.LogDebug(log)
 
 	if channel.CreatorId == "" {
-		p.API.LogDebug("Not creating post due to channel being created through automation.")
+		p.API.LogDebug("Not creating post due to channel being created through automation.", "id", channel.Id)
 		return
 	}
 
@@ -43,21 +43,21 @@ func (p *NewChannelNotifyPlugin) ChannelHasBeenCreated(c *plugin.Context, channe
 	}
 
 	if config.ChannelToPost == "" {
-		config.ChannelToPost = model.DEFAULT_CHANNEL
+		return
 	}
 
-	if config.IncludeChannelPurpose == true && channel.Purpose != "" {
+	if config.IncludeChannelPurpose && channel.Purpose != "" {
 		ChannelPurpose = "\n **" + channel.Name + "'s Purpose:** " + channel.Purpose
 	}
 
 	newChannelName := channel.Name
 
-	if channel.Type == model.CHANNEL_DIRECT || channel.Type == model.CHANNEL_GROUP {
+	if channel.Type == model.ChannelTypeDirect || channel.Type == model.ChannelTypeGroup {
 		return
 	}
 
-	if channel.Type == model.CHANNEL_PRIVATE {
-		if config.IncludePrivateChannels == false {
+	if channel.Type == model.ChannelTypePrivate {
+		if !config.IncludePrivateChannels {
 			return
 		}
 		newChannelName += " [Private]"
